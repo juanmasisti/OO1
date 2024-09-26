@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="ejercicio11/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio11/src/test/java"/>
+	<classpathentry kind="src" path="ejercicio12/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio12/src/test/java"/>
+	<classpathentry kind="src" path="ejercicio13/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio14/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio14/src/test/java"/>
+	<classpathentry kind="src" path="ejercicio15/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio15/src/test/java"/>
+	<classpathentry kind="src" path="ejercicio2/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio2/src/test/java"/>
+	<classpathentry kind="src" path="ejercicio3-bis/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio3/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio3/src/test/java"/>
+	<classpathentry kind="src" path="ejercicio4-figurasYCuerpos/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio5/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio5/src/test/java"/>
+	<classpathentry kind="src" path="ejercicio6/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio6/src/test/java"/>
+	<classpathentry kind="src" path="ejercicio7/src/main/java"/>
+	<classpathentry kind="src" path="ejercicio7/src/test/java"/>
+	<classpathentry kind="src" path="figurasYCuerpos/src/main/java"/>
+	<classpathentry kind="src" path="figurasYCuerpos/src/test/java"/>
+	<classpathentry kind="src" path="ListasGenericas/src"/>
+	<classpathentry kind="src" path="parcial1/src/main/java"/>
+	<classpathentry kind="output" path="ListasGenericas/bin"/>
+</classpath>
