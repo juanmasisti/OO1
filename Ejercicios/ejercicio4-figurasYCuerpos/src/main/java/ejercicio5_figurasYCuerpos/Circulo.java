@@ -1,4 +1,4 @@
-package ejercicio4_figurasYCuerpos;
+package ejercicio5_figurasYCuerpos;
 
 public class Circulo implements Figura{
 	private double radio;

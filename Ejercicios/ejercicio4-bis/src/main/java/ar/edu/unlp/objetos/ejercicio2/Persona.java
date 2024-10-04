@@ -1,4 +1,4 @@
-package ar.edu.unlp.objetos.ejercicio4_bis;
+package ar.edu.unlp.objetos.ejercicio2;
 
 /**
  * De esta forma crearemos las clases del ejercicio
