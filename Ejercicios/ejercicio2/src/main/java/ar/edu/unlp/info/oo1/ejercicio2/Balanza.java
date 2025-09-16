@@ -1,7 +1,7 @@
 package ar.edu.unlp.info.oo1.ejercicio2;
 
 public class Balanza {
-	private int cantidadDeProductos;
+	private int cantidadDeProductos; //aaa
 	private double precioTotal;
 	private double pesoTotal;
 	
