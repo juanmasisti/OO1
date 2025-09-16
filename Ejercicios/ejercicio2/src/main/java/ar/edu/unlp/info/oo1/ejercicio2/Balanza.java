@@ -28,6 +28,7 @@ public class Balanza {
 	}
 	
 	public void agregarProducto(Producto producto) {
+	    if (producto == null) throw new IllegalArgumentException("Producto no puede ser null");
 		this.cantidadDeProductos ++;
 		this.precioTotal += producto.getPrecio();
 		this.pesoTotal += producto.getPeso();
