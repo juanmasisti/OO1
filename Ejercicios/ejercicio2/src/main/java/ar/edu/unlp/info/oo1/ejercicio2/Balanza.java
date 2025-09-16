@@ -5,6 +5,9 @@ public class Balanza {
 	private double precioTotal;
 	private double pesoTotal;
 	
+	public Balanza() {
+		this.ponerEnCero();
+	}
 	
 	public int getCantidadDeProductos() {
 		return cantidadDeProductos;

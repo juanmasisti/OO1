@@ -5,6 +5,12 @@ public class Producto {
 	private double precioPorKilo;
 	private String descripcion;
 	
+	public Producto(double peso, double precioPorKilo, String descripcion) {
+		super();
+		this.peso = peso;
+		this.precioPorKilo = precioPorKilo;
+		this.descripcion = descripcion;
+	}
 	public double getPeso() {
 		return peso;
 	}
@@ -25,6 +31,6 @@ public class Producto {
 		this.descripcion = descripcion;
 	}
 	public double getPrecio() {
-		return this.getPrecio() * this.getPeso();
+		return this.getPrecioPorKilo() * this.getPeso();
 	}
 }
