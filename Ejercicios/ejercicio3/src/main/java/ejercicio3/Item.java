@@ -6,11 +6,11 @@ public class Item {
 	private int cantidad;
 	private double costoUnitario;
 	
-	// Constructor vacío (no aclara consigna)
+	// Constructor vacío (opcional, no aclara consigna)
     public Item() {
     }
 
-    // Constructor con parámetros (no aclara consigna)
+    // Constructor con parámetros (recomendado para mas control, no aclara consigna)
     public Item(String detalle, int cantidad, double costoUnitario) {
         this.detalle = detalle;
         this.cantidad = cantidad;
@@ -39,11 +39,14 @@ public class Item {
 	public double costo() {
 		return (this.getCantidad() * this.getCostoUnitario());
 	}
-	public Item detalle(String string) {
+	
+	// Método builders:La idea es poder encadenar llamadas para simplificar y reemplazar los setters.
+	 // preguntar si son necesarios.
+	public Item detalle(String detalle) {
 		this.setDetalle(detalle);
 		return this;
 	}
-	public Item costoUnitario(int costoUnitario) {
+	public Item costoUnitario(double costoUnitario) {
 		this.setCostoUnitario(costoUnitario);
 		return this;
 	}

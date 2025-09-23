@@ -2,40 +2,36 @@ package ar.edu.unlp.objetos.ejercicio2;
 
 public class Producto {
 	private double peso;
-	private double pesoPorKilo;
+	private double precioPorKilo;
 	private String descripcion;
 	
-	public Producto(double peso, double pesoPorKilo, String descripcion) {
+	public Producto(double peso, double precioPorKilo, String descripcion) {
+		super();
 		this.peso = peso;
-		this.pesoPorKilo = pesoPorKilo;
+		this.precioPorKilo = precioPorKilo;
 		this.descripcion = descripcion;
 	}
-
 	public double getPeso() {
 		return peso;
 	}
-
-	public void setPeso(double peso) {
-		this.peso = peso;
+	public double getPrecioPorKilo() {
+		return precioPorKilo;
 	}
-
-	public double getPesoPorKilo() {
-		return pesoPorKilo;
-	}
-
-	public void setPesoPorKilo(double pesoPorKilo) {
-		this.pesoPorKilo = pesoPorKilo;
-	}
-
 	public String getDescripcion() {
 		return descripcion;
 	}
-
+	
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+	public void setPrecioPorKilo(double precioPorKilo) {
+		this.precioPorKilo = precioPorKilo;
+	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
-	
-	
+	public double getPrecio() {
+		return this.getPrecioPorKilo() * this.getPeso();
+	}
 }
+

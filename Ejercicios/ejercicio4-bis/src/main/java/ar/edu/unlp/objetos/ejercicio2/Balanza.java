@@ -1,56 +1,54 @@
 package ar.edu.unlp.objetos.ejercicio2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Balanza {
-	private Integer cantidadProductos;
-	private double precioTotal;
-	private double pesoTotal;
 	private Ticket ticket;
+	//Ahora tenemos coleccion de productos y calculamos datos desde esta coleccion 
+	//en lugar de tener campos precioTotal, pesoTotal, cantidadDeProductos.
+	private List<Producto> productos;
 	
-	public Balanza(Integer cantidadProductos, double precioTotal, double pesoTotal) {
-		this.cantidadProductos = cantidadProductos;
-		this.precioTotal = precioTotal;
-		this.pesoTotal = pesoTotal;
+	public Balanza(List<Producto> productos) {
+		this.productos = productos;
 	}
 
-	public Integer getCantidadProductos() {
-		return cantidadProductos;
+	public Balanza() {
+		this.productos = new ArrayList<Producto>();
 	}
 
-	public void setCantidadProductos(Integer cantidadProductos) {
-		this.cantidadProductos = cantidadProductos;
+	public List<Producto> getProductos(){
+		return this.productos;
 	}
-
-	public double getPrecioTotal() {
-		return precioTotal;
-	}
-
-	public void setPrecioTotal(double precioTotal) {
-		this.precioTotal = precioTotal;
-	}
-
-	public double getPesoTotal() {
-		return pesoTotal;
-	}
-
-	public void setPesoTotal(double pesoTotal) {
-		this.pesoTotal = pesoTotal;
-	}
-	
-
 	public void ponerEnCero() {
-		this.cantidadProductos = 0;
-		this.pesoTotal = 0;
-		this.precioTotal = 0;
-		
+		this.productos.clear();
 	}
 	
 	public void agregarProducto(Producto producto) {
-		this.setCantidadProductos(cantidadProductos+1);
+		this.productos.add(producto);
 		
 	}
 	
+    // Cambio importante: Cantidad, peso y precio calculados a partir de la lista
+    public int getCantidadDeProductos() {
+        return this.productos.size();
+    }
+
+    public double getPesoTotal() {
+        return this.productos.stream()
+                .mapToDouble(Producto::getPeso)
+                .sum();
+    }
+
+    public double getPrecioTotal() {
+        return this.productos.stream()
+                .mapToDouble(Producto::getPrecio)
+                .sum();
+    }
+
 	public Ticket emitirTicket() {
-		ticket = new Ticket(this.cantidadProductos, this.pesoTotal, this.pesoTotal);
+		//Ahora se le pasa la lista de productos para instanciar el Ticket.
+		ticket = new Ticket(this.getCantidadDeProductos(), this.getPesoTotal(),this.getPrecioTotal(), this.getProductos());
 		return ticket;
 	}
 }
