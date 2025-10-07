@@ -1,0 +1,27 @@
+/**
+ Resolucion ejercicio 10
+**/
+
+1)
+Gerente alan = new Gerente("Alan Turing");
+double aportesDeAlan = alan.aportes();
+como está definido en la clase gerente queda, Gerente.aportes() = 57000 * 0.05 = 2850.
+
+ 	/* Resultado: aportesDeAlan = 2850.0 */
+
+2)
+Gerente alan = new Gerente("Alan Turing");
+double sueldoBasicoDeAlan = alan.sueldoBasico();
+sueldoBasico() de EmpleadoJerarquico (porque Gerente no lo redefine, así que se usa la versión de la subclase intermedia).
+
+Dentro de EmpleadoJerarquico.sueldoBasico() se ejecuta super.sueldoBasico() → sueldoBasico() de Empleado.
+Dentro de Empleado.sueldoBasico() se llaman:
+this.montoBasico() → montoBasico() de Gerente. --> = 57000
+this.aportes() → aportes() de Gerente. --> = 57000 * 0.05 = 2850.
+Dentro de Gerente.aportes() a su vez se llama this.montoBasico() → montoBasico() de Gerente (segunda llamada a ese método).
+	// Empleado.sueldoBasico() = this.montoBasico() + this.aportes() = 57000 + 2850 = 59850
+Después de volver de super.sueldoBasico(), 
+EmpleadoJerarquico.sueldoBasico() llama this.bonoPorCategoria() → bonoPorCategoria() de EmpleadoJerarquico 
+(no se encuentra en subclase Gerente). --> = 59850 + 8000.
+
+	/* Resultado sueldoBasicoDeAlan = 67850.0 */
