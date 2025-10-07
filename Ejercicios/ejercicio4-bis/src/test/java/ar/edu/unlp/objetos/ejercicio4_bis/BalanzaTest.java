@@ -7,9 +7,9 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unlp.objetos.ejercicio2.Balanza;
-import ar.edu.unlp.objetos.ejercicio2.Producto;
-import ar.edu.unlp.objetos.ejercicio2.Ticket;
+import ar.edu.unlp.objetos.ejercicio4.Balanza;
+import ar.edu.unlp.objetos.ejercicio4.Producto;
+import ar.edu.unlp.objetos.ejercicio4.Ticket;
 
 public class BalanzaTest {
  
