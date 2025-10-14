@@ -7,14 +7,9 @@ public class CajaDeAhorro extends Cuenta {
      super();
  }
 
- public CajaDeAhorro(double saldoInicial) {
-     super(saldoInicial);
- }
-
  @Override
  public void depositar(double monto) {
-     double neto = monto - (monto * COSTO_PORC);
-     super.depositar(neto);
+     super.depositar(monto - (monto * COSTO_PORC));
  }
 
  @Override

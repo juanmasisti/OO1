@@ -8,8 +8,8 @@ public class CuentaCorriente extends Cuenta {
      this.descubierto = 0;
  }
 
- public CuentaCorriente(double saldoInicial, double descubiertoInicial) {
-     super(saldoInicial);
+ public CuentaCorriente(double descubiertoInicial) {
+     super();
      this.descubierto = descubiertoInicial;
  }
 

@@ -7,9 +7,6 @@ public abstract class Cuenta {
      this.saldo = 0;
  }
 
- public Cuenta(double saldoInicial) {
-	 this.saldo = saldoInicial;
- }
  
  public double getSaldo() {
      return this.saldo;
