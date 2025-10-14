@@ -1,0 +1,23 @@
+1) 
+Porque la clase Cuenta introduce hooks (ganchos) puntos de extensión que permiten que subclases cambien comportamiento sin reescribir la lógica general. 
+Concretamente:
+-puedeExtraer(monto) 
+-extraerSinControlar(monto)
+
+2)
+this es la referencia al objeto en tiempo de ejecución (runtime). Aunque el código está escrito en la clase Cuenta, si en tiempo de ejecución el objeto es una instancia de CajaDeAhorro o CuentaCorriente, this será esa instancia concreta. Por eso:
+
+
+3)
+Porque son “puntos de extensión” pensados específicamente para las subclases.
+
+4) 
+Sí, se puede transferir entre cualquier par de Cuenta mientras la cuenta origen permita la extracción (es decir puedeExtraer(monto) retorne true).
+
+Lo mismo al revés: si la cuenta corriente tiene descubierto suficiente, puede transferir aun con saldo negativo permitido.
+
+5) 
+Declaración: protected abstract boolean puedeExtraer(double monto); dentro de una clase abstract.
+"The type CajaDeAhorro must implement the inherited abstract method Cuenta.puedeExtraer(double)"
+
+Si una clase no abstracta no implementa el método abstracto heredado, el compilador dará error: la clase no implementa el método abstracto — debes implementarlo o marcar la clase abstract.

@@ -1,13 +1,16 @@
 package ejercicio11;
 
-//Cuenta.java
 public abstract class Cuenta {
- protected double saldo;
+ private double saldo;
 
  public Cuenta() {
      this.saldo = 0;
  }
 
+ public Cuenta(double saldoInicial) {
+	 this.saldo = saldoInicial;
+ }
+ 
  public double getSaldo() {
      return this.saldo;
  }
@@ -37,6 +40,5 @@ public abstract class Cuenta {
      return false;
  }
 
- // Hook: las subclases deben decir si pueden extraer ese monto
  protected abstract boolean puedeExtraer(double monto);
 }

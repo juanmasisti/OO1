@@ -1,6 +1,5 @@
 package ejercicio11;
 
-//CuentaCorriente.java
 public class CuentaCorriente extends Cuenta {
  private double descubierto; // máximo saldo negativo permitido (>= 0)
 
@@ -9,8 +8,8 @@ public class CuentaCorriente extends Cuenta {
      this.descubierto = 0;
  }
 
- public CuentaCorriente(double descubiertoInicial) {
-     super();
+ public CuentaCorriente(double saldoInicial, double descubiertoInicial) {
+     super(saldoInicial);
      this.descubierto = descubiertoInicial;
  }
 
@@ -24,9 +23,6 @@ public class CuentaCorriente extends Cuenta {
 
  @Override
  protected boolean puedeExtraer(double monto) {
-     // Se permite extraer siempre que no supere el límite de descubierto
-     return (this.saldo - monto) >= -this.descubierto;
+     return (this.getSaldo() - monto) + this.descubierto >= 0;
  }
-
- // extraerSinControlar heredado: resta exactamente 'monto' del saldo
 }

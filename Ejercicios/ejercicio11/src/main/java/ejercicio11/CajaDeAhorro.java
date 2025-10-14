@@ -1,6 +1,5 @@
 package ejercicio11;
 
-//CajaDeAhorro.java
 public class CajaDeAhorro extends Cuenta {
  private static final double COSTO_PORC = 0.02;
 
@@ -9,28 +8,25 @@ public class CajaDeAhorro extends Cuenta {
  }
 
  public CajaDeAhorro(double saldoInicial) {
-     super();
-     this.saldo = saldoInicial;
+     super(saldoInicial);
  }
 
  @Override
  public void depositar(double monto) {
-     // Depósito con costo del 2% (el banco se queda 2% del monto)
-     double neto = monto * (1 - COSTO_PORC);
+     double neto = monto - (monto * COSTO_PORC);
      super.depositar(neto);
  }
 
  @Override
  protected void extraerSinControlar(double monto) {
-     // Al extraer, se descuenta el monto + 2% de costo
-     double costoTotal = monto * (1 + COSTO_PORC);
-     this.saldo -= costoTotal;
+     double costoTotal = monto + (monto * COSTO_PORC);
+     super.extraerSinControlar(costoTotal);
  }
 
  @Override
  protected boolean puedeExtraer(double monto) {
-     // Se permite sólo si hay fondos para cubrir monto + 2%
-     double costoTotal = monto * (1 + COSTO_PORC);
-     return this.saldo >= costoTotal;
+     // Devuelve true si el saldo es mayor o igual al monto sumado el 2%
+     double costoTotal = monto + (monto * COSTO_PORC);
+     return this.getSaldo() >= costoTotal;
  }
 }
