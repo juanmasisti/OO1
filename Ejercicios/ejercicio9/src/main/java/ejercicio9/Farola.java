@@ -41,7 +41,7 @@ public class Farola {
 	public void turnOn() {
 		if (!this.isOn()) {
 			this.on = true;
-			this.getNeighbors().forEach(l -> l.turnOn());
+			this.getNeighbors().forEach(farola -> farola.turnOn());
 		}
 	}
 
@@ -51,7 +51,7 @@ public class Farola {
 	public void turnOff() {
 		if (this.isOn()) {
 		this.on = false;
-		this.getNeighbors().forEach(l -> l.turnOff());
+		this.getNeighbors().forEach(farola -> farola.turnOff());
 		}
 	}
 
