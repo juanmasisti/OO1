@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JobScheduler {
-    protected List<JobDescription> jobs;
-    protected JobSelectionStrategy strategy;
+    private List<JobDescription> jobs;
+    private JobSelectionStrategy strategy;
 
     public JobScheduler () {
         this.jobs = new ArrayList<>();

@@ -31,6 +31,11 @@
         <scope>test</scope>
     </dependency>
 
+    <dependency>
+    	<groupId>11</groupId>
+    	<artifactId>ejercicio11</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
 

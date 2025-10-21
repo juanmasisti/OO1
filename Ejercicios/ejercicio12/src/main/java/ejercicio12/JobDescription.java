@@ -3,9 +3,7 @@ package ejercicio12;
 public class JobDescription {
 
 	private double effort;
-
 	private int priority;
-
 	private String description;
 
 	public JobDescription (double anEffort, int aPriority, String aDescription) {
