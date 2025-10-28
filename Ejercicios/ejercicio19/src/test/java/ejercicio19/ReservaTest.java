@@ -17,13 +17,13 @@ public class ReservaTest {
         propiedad = new Propiedad("Calle 1", "Casa", 200);
         usuario = new Usuario("Pedro", "Av. 1", "4563111");
         periodo = new DateLapse(LocalDate.of(2025, 1, 1), LocalDate.of(2025, 1, 4)); // 3 noches
-        reserva = new Reserva(periodo, propiedad);
+        reserva = new Reserva(periodo);
         propiedad.agregarReserva(reserva);
     }
 
     @Test
     void testCalcularPrecio() {
-        assertEquals(600, reserva.calcularPrecio()); // 3 * 200
+        assertEquals(600, reserva.calcularPrecio(propiedad.getPrecioPorNoche())); // 3 * 200
     }
 
     @Test
@@ -39,18 +39,18 @@ public class ReservaTest {
         // para simular una reserva futura, elegimos fechas posteriores a hoy
         LocalDate inicio = LocalDate.now().plusDays(10);
         LocalDate fin = inicio.plusDays(5);
-        Reserva futura = new Reserva(new DateLapse(inicio, fin), propiedad);
+        Reserva futura = new Reserva(new DateLapse(inicio, fin));
         propiedad.agregarReserva(futura);
-        futura.cancelar(); // debería eliminarse
+        futura.cancelar(propiedad); // debería eliminarse
         assertTrue(propiedad.estaDisponible(new DateLapse(inicio, fin)));
     }
     
     @Test
     void testCancelarReservaEnCurso() {
     	DateLapse periodoEnCurso = new DateLapse(LocalDate.now(), LocalDate.now().plusDays(5));
-        Reserva futura = new Reserva(periodoEnCurso, propiedad);
+        Reserva futura = new Reserva(periodoEnCurso);
         propiedad.agregarReserva(futura);
-        futura.cancelar(); // no debería poder eliminarse
+        futura.cancelar(propiedad); // no debería poder eliminarse
         assertFalse(propiedad.estaDisponible(periodoEnCurso));
     }
 }

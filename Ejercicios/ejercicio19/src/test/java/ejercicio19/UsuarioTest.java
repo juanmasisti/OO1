@@ -28,7 +28,7 @@ class UsuarioTest {
     void testReservarPropiedadDisponible() {
         Reserva reserva = cliente.reservar(propiedad, periodo);
         assertNotNull(reserva);
-        assertEquals((150 * 3 * 0.75), propiedad.calcularIngresos(periodo), 0.01); // 150 x 3 días y sacamos el 0.75 que hace la funcion calcularIngresos().
+        assertEquals((150 * 3), propiedad.calcularIngresos(periodo), 0.01); // 150 x 3 días y sacamos el 0.75 que hace la funcion calcularIngresos().
     }
 
     @Test
@@ -40,10 +40,23 @@ class UsuarioTest {
     }
 
     @Test
-    void testCalcularIngresosPropietario() {
+    void testCalcularIngresosPropietarioConReservas() {
         cliente.reservar(propiedad, periodo);
         DateLapse rango = new DateLapse(LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31));
         assertEquals(0.75 * (3 * 150), propietario.calcularIngresos(rango), 0.01);
+    }
+    
+    @Test
+    void testCalcularIngresosPropietarioSinReservas() {
+        //cliente.reservar(propiedad, periodo);
+        DateLapse rango = new DateLapse(LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31));
+        assertEquals(0, propietario.calcularIngresos(rango), 0.01);
+    }
+    @Test
+    void testCalcularIngresosPropietarioSinReservasEnPeriodo() {
+        cliente.reservar(propiedad, periodo);
+        DateLapse rango = new DateLapse(LocalDate.of(2027, 2, 1), LocalDate.of(2027, 12, 31));
+        assertEquals(0, propietario.calcularIngresos(rango), 0.1);
     }
     
 }

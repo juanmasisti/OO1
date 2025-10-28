@@ -33,7 +33,7 @@ public class Usuario {
 
     public Reserva reservar(Propiedad propiedad, DateLapse periodo) {
         if (propiedad.estaDisponible(periodo)) {
-            Reserva reserva = new Reserva(periodo, propiedad);
+            Reserva reserva = new Reserva(periodo);
             propiedad.agregarReserva(reserva);
             reservas.add(reserva);
             return reserva;
@@ -44,6 +44,6 @@ public class Usuario {
     public double calcularIngresos(DateLapse periodo) {
         return propiedades.stream()
                 .mapToDouble(p -> p.calcularIngresos(periodo))
-                .sum();
+                .sum() * 0.75;
     }
 }

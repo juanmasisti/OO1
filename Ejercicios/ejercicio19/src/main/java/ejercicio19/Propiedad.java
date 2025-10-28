@@ -36,8 +36,8 @@ public class Propiedad {
 	public double calcularIngresos(DateLapse periodo) {
 		return reservas.stream()
 				.filter(r -> r.getPeriodo().overlaps(periodo))
-				.mapToDouble(Reserva::calcularPrecio)
-				.sum() * 0.75;
+				.mapToDouble(r -> r.calcularPrecio(precioPorNoche))
+				.sum();
 	}
 	
 	public void agregarReserva(Reserva r) {

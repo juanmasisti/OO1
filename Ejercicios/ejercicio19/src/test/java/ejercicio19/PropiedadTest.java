@@ -21,16 +21,17 @@ public class PropiedadTest {
     @Test
     void testPropiedadDisponibleYNoDisponible() {
         assertTrue(propiedad.estaDisponible(periodo1));
-        Reserva r = new Reserva(periodo1, propiedad);
+        Reserva r = new Reserva(periodo1);
         propiedad.agregarReserva(r);
-        assertFalse(propiedad.estaDisponible(periodoSolapado)); // se superpone
+        assertFalse(propiedad.estaDisponible(periodo1)); // se superpone
     }
 
     @Test
     void testCalcularIngresos() {
-        propiedad.agregarReserva(new Reserva(periodo1, propiedad));
-        propiedad.agregarReserva(new Reserva(periodo2, propiedad));
-        DateLapse rango = new DateLapse(LocalDate.of(2025, 1, 1), LocalDate.of(2025, 1, 20));
-        assertEquals(0.75 * ((4 * 100) + (5 * 100)), propiedad.calcularIngresos(rango));
+    	assertEquals(0, propiedad.calcularIngresos(periodo1),0.1);
+        propiedad.agregarReserva(new Reserva(periodo1));
+        assertEquals((5 * 100), propiedad.calcularIngresos(periodo1),0.1);
+    	assertEquals(0, propiedad.calcularIngresos(periodo2),0.1);
+
     }
 }
